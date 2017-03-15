@@ -1,17 +1,20 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
+  labels:
+    name: smartgrid-wechat-portal-client
   name: smartgrid-wechat-portal-client
+  namespace: gridvo
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: smartgrid-wechat-portal-client
+        name: smartgrid-wechat-portal-client
     spec:
       containers:
       - name: smartgrid-wechat-portal-client
-        image: 10.0.2.62:5000/gridvo/smartgrid-wechat-portal-client:dev
+        image: 10.0.3.31:5000/gridvo/smartgrid-wechat-portal-client:dev
         imagePullPolicy: Always
         ports:
         - containerPort: 3001
